@@ -1,5 +1,5 @@
 import pygame # type: ignore
-from constants import SCREEN_WIDTH, SCREEN_HEIGHT
+from constants import SCREEN_WIDTH, SCREEN_HEIGHT, SCORE
 from player import Player
 from shot import Shot
 from asteroid import Asteroid
@@ -30,8 +30,6 @@ def main():
     AsteroidField.containers = (updatable)
     asteroid_field = AsteroidField()
     player = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2)
-    
-    
 
     # GAME LOOP START
 
@@ -62,14 +60,10 @@ def main():
                     log_event("asteroid_shot")
                     shot.kill()
                     asteroid.split()
-
-
+                    
         
         pygame.display.flip()
 
-        
-        
-
-
+                
 if __name__ == "__main__":
     main()

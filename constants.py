@@ -2,6 +2,9 @@
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
 
+# Scoring constants
+SCORE = 0
+
 # Player Constants
 PLAYER_RADIUS = 20 # Size of player ship
 LINE_WIDTH = 2
