@@ -4,6 +4,8 @@ from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from logger import log_state
+from logger import log_event
+import sys
 
 def main():
     # Notify game starting to console with pygame version and game screen properties
@@ -19,6 +21,7 @@ def main():
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable)
@@ -44,6 +47,13 @@ def main():
 
         for obj in drawable:
             obj.draw(screen)
+        
+        for asteroid in asteroids:
+            if (player.collides_with(asteroid)):
+                log_event("player_hit")
+                print("Game over!")
+                sys.exit()
+
 
         
         pygame.display.flip()
